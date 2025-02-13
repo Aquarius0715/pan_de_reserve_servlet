@@ -1,0 +1,68 @@
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto 60px; /* Adjust for fixed header and footer */
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 10px;
+    font-size: 1em;
+    word-wrap: break-word;
+}
+
+table th:nth-child(1), table td:nth-child(1) {
+    width: 5%; /* IDの列を狭くする */
+}
+
+table th:nth-child(2), table td:nth-child(2) {
+    width: 25%; /* 予約時間の列を広くする */
+}
+
+table th {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+button {
+    width: auto;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+}

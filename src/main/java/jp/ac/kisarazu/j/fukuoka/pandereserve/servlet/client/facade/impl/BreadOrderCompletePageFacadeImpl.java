@@ -24,6 +24,5 @@ public class BreadOrderCompletePageFacadeImpl extends HttpServlet implements Bre
             return;
         }
         request.getRequestDispatcher("/WEB-INF/client/breadOrderCompletePage.jsp").forward(request, response);
-        request.getSession().invalidate();
     }
 }

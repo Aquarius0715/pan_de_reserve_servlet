@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS bakery_items (
                                             bakery_item_price INT NOT NULL,
                                             bakery_item_description VARCHAR(255) NOT NULL,
                                             bakery_item_image LONGTEXT NOT NULL,
-                                            status ENUM('AVAILABLE', 'UNAVAILABLE') NOT NULL DEFAULT 'AVAILABLE',
+                                            status ENUM('AVAILABLE', 'UNAVAILABLE', 'ARCHIVED') NOT NULL DEFAULT 'AVAILABLE',
                                             created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
                                             updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

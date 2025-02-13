@@ -30,7 +30,6 @@ public class LoginPageFacadeImpl extends HttpServlet implements LoginPageFacade 
         } else {
             request.getRequestDispatcher("/WEB-INF/admin/loginPage.jsp").forward(request, response);
         }
-        request.getSession().invalidate();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

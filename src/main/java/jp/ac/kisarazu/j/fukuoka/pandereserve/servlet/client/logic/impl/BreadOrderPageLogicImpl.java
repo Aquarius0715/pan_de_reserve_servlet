@@ -5,11 +5,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.dao.BakeryItemDAO;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.dao.impl.BakeryItemDAOImpl;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.dto.BakeryItemDTO;
+import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.admin.model.BreadListPageModel;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.client.logic.BreadOrderPageLogic;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.client.model.BreadOrderPageModel;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.client.model.Order;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Locale;
 
 public class BreadOrderPageLogicImpl implements BreadOrderPageLogic {
 
@@ -27,6 +31,11 @@ public class BreadOrderPageLogicImpl implements BreadOrderPageLogic {
             breadOrderPageModel.setBreadImage(bakeryItemDTO.getBakeryItemImage());
             breadOrderPageModels.add(breadOrderPageModel);
         }
+        Comparator<BreadOrderPageModel> comparator = Comparator.comparing(
+                BreadOrderPageModel::getBreadName,
+                Collator.getInstance(Locale.JAPANESE)
+        );
+        breadOrderPageModels.sort(comparator);
         return breadOrderPageModels;
     }
 

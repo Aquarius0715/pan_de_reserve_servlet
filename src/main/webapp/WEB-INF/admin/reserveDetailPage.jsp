@@ -4,130 +4,12 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/adminPageCommonStyle.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/admin/css/reserveDetailPageStyle.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/admin/js/reserveDetailPageScript.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>予約詳細</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #f8f8f8;
-        }
-
-        header {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            font-size: 1.5em;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-
-        .button-container {
-            width: 100%;
-            background-color: #fff;
-            padding: 10px 0;
-            margin-top: 60px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .button-container nav ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 0;
-        }
-
-        .button-container nav ul li button {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-
-        .button-container nav ul li button:hover {
-            background-color: #0056b3;
-        }
-
-        footer {
-            width: 100%;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            font-size: 0.9em;
-        }
-
-        main {
-            flex: 1;
-            width: 100%;
-            max-width: 800px;
-            margin: 20px auto 60px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .back-button-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .back-button {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            font-size: 1em;
-            cursor: pointer;
-        }
-
-        .back-button:hover {
-            background-color: #0056b3;
-        }
-
-        .title {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        table th, table td {
-            border: 1px solid #ddd;
-            text-align: left;
-            padding: 10px;
-        }
-
-        table th {
-            background-color: #f2f2f2;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -209,7 +91,9 @@
         </tbody>
     </table>
 </main>
-
+<div class="invisible-space">&nbsp;</div> <!-- 見えないスペース -->
+<div class="invisible-space">&nbsp;</div> <!-- 見えないスペース -->
+<div class="invisible-space">&nbsp;</div> <!-- 見えないスペース -->
 <footer>
     &copy; Pan Shop
 </footer>

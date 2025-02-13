@@ -27,7 +27,7 @@ public class BakeryItemDAOImpl implements BakeryItemDAO {
     public ArrayList<BakeryItemDTO> loadBakeryItems() {
         MySQLManagerImpl manager = new MySQLManagerImpl("loadBakeryItems");
         ArrayList<BakeryItemDTO> bakeryItems = new ArrayList<>();
-        String sql = "SELECT * FROM bakery_items;";
+        String sql = "SELECT * FROM bakery_items WHERE status != 'ARCHIVED'";
         try {
             ResultSet resultSet = manager.query(sql);
             while (resultSet.next()) {

@@ -30,7 +30,6 @@ public class BreadAppendPageFacadeImpl extends HttpServlet implements BreadAppen
         } else {
             response.sendRedirect(request.getContextPath() + "/admin/login");
         }
-        request.getSession().invalidate();
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

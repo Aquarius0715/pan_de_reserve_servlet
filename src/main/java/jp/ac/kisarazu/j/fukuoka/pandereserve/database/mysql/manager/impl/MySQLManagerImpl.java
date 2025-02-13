@@ -1,20 +1,14 @@
 package jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.manager.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.manager.MySQLFunc;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.manager.MySQLManager;
-import jp.ac.kisarazu.j.fukuoka.pandereserve.database.mysql.model.JDBCModel;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MySQLManagerImpl implements MySQLManager {
-    private JDBCModel jdbcModel;
     private boolean isDebugMode;
     private boolean isConnected = false;
     private Statement statement;
@@ -23,7 +17,6 @@ public class MySQLManagerImpl implements MySQLManager {
     private final String connectionName;
 
     public MySQLManagerImpl(String connectionName) {
-        jdbcModel = new JDBCModel();
         loadConfig();
         isDebugMode = true;
         isConnected = false;
@@ -44,12 +37,6 @@ public class MySQLManagerImpl implements MySQLManager {
         }
          */
 
-
-        jdbcModel.setDb("pan_de_reserve");
-        jdbcModel.setHost("localhost");
-        jdbcModel.setPass("mk871396");
-        jdbcModel.setPort("3306");
-        jdbcModel.setUser("root");
     }
 
     @Override
@@ -62,9 +49,8 @@ public class MySQLManagerImpl implements MySQLManager {
     }
 
     @Override
-    public boolean connect(JDBCModel jdbcModel) throws SQLException {
-        this.jdbcModel = jdbcModel;
-        mySQLFunc = new MySQLFuncImpl(jdbcModel);
+    public boolean connect() throws SQLException {
+        mySQLFunc = new MySQLFuncImpl();
         connection = mySQLFunc.open();
         if (connection == null) {
             System.err.println("Failed to Open MySQL");
@@ -93,12 +79,12 @@ public class MySQLManagerImpl implements MySQLManager {
 
     @Override
     public boolean connectCheck() throws SQLException {
-        return connect(this.jdbcModel);
+        return connect();
     }
     @Override
     public boolean execute(String query) {
         StringBuilder msg;
-        mySQLFunc = new MySQLFuncImpl(jdbcModel);
+        mySQLFunc = new MySQLFuncImpl();
         connection = mySQLFunc.open();
         if (connection == null) {
             System.err.println("Failed to open MySQL");
@@ -130,7 +116,7 @@ public class MySQLManagerImpl implements MySQLManager {
     @Override
     public ResultSet query(String query) {
         StringBuilder msg;
-        mySQLFunc = new MySQLFuncImpl(jdbcModel);
+        mySQLFunc = new MySQLFuncImpl();
         connection = mySQLFunc.open();
         ResultSet resultSet = null;
         if (connection == null) {

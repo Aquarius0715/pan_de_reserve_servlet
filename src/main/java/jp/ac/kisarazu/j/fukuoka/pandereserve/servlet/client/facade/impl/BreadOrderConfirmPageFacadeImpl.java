@@ -32,7 +32,6 @@ public class BreadOrderConfirmPageFacadeImpl extends HttpServlet implements Brea
         String phoneNumber = request.getParameter("phoneNumber"); // 追加
         String visitDate = request.getParameter("visitDate");
         String orderJson = (String) request.getSession().getAttribute("orderJson");
-        System.out.println("orderJson: " + orderJson);
         BreadOrderConfirmPageModel model = new BreadOrderConfirmPageModel();
         model.setCustomerName(customerName);
         model.setReceiveTime(visitDate);

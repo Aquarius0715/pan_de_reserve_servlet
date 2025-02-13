@@ -8,7 +8,11 @@ import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.admin.logic.BreadListPageLo
 import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.admin.model.BreadListPageModel;
 import jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.admin.util.impl.PageManagerImpl;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
 
 public class BreadListPageLogicImpl extends PageManagerImpl implements BreadListPageLogic {
 
@@ -21,6 +25,11 @@ public class BreadListPageLogicImpl extends PageManagerImpl implements BreadList
             BreadListPageModel breadListPageModel = getBreadListPageModel(bakeryItemDTO);
             breadListPageModels.add(breadListPageModel);
         }
+        Comparator<BreadListPageModel> comparator = Comparator.comparing(
+                BreadListPageModel::getBreadName,
+                Collator.getInstance(Locale.JAPANESE)
+        );
+        breadListPageModels.sort(comparator);
         return breadListPageModels;
     }
 
@@ -37,7 +46,7 @@ public class BreadListPageLogicImpl extends PageManagerImpl implements BreadList
     @Override
     public boolean deleteBreadItem(int id) {
         BakeryItemDAO bakeryItemDAO = new BakeryItemDAOImpl();
-        return bakeryItemDAO.deleteBakeryItem(id);
+        return bakeryItemDAO.updateSalesStatus(id, SalesStatus.ARCHIVED);
     }
 
     private BreadListPageModel getBreadListPageModel(BakeryItemDTO bakeryItemDTO) {
