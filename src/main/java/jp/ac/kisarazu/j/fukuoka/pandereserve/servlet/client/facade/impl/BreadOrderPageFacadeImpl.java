@@ -1,6 +1,5 @@
 package jp.ac.kisarazu.j.fukuoka.pandereserve.servlet.client.facade.impl;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

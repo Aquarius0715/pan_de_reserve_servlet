@@ -3,7 +3,7 @@ function confirmDelete(reservationId) {
         const form = document.createElement('form');
         form.method = 'POST';
         const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 1));
-        form.action = `${contextPath}/admin/breadList/deleteBread`;
+        form.action = `${contextPath}/breadList/deleteBread`;
 
         // 必要なデータをフォームに追加
         const input = document.createElement('input');

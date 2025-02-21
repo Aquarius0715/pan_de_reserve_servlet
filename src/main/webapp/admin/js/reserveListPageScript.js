@@ -3,7 +3,7 @@ function confirmDelivery(reservationId, customerName) {
         const form = document.createElement('form');
         form.method = 'POST';
         const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 1));
-        form.action = `${contextPath}/admin/reserveList/setToReceived`;
+        form.action = `${contextPath}/reserveList/setToReceived`;
 
         const input = document.createElement('input');
         input.type = 'hidden';
@@ -21,7 +21,7 @@ function cancelDelivery(reservationId, customerName) {
         const form = document.createElement('form');
         form.method = 'POST';
         const contextPath = window.location.pathname.substring(0, window.location.pathname.indexOf("/", 1));
-        form.action = `${contextPath}/admin/reserveList/setToUnReceived`;
+        form.action = `${contextPath}/reserveList/setToUnReceived`;
 
         const input = document.createElement('input');
         input.type = 'hidden';
